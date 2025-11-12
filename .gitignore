@@ -1,0 +1,5 @@
+# For Nand2Tetris
+tools/
+
+# For MacOS
+.DS_Store
