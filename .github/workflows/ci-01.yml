@@ -13,7 +13,7 @@ env:
 
 jobs:
   ci-01-boolean-logic:
-    name: Test
+    name: Test 01
     runs-on: ubuntu-latest
     
     steps:
@@ -34,3 +34,4 @@ jobs:
           for test in "${TESTS[@]}"; do
             echo "Running $test"
             tools/HardwareSimulator.sh projects/01/$test
+          done
