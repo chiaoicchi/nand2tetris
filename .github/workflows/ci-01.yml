@@ -13,7 +13,7 @@ env:
 
 jobs:
   ci-01-boolean-logic:
-    name: Test
+    name: Test 01
     runs-on: ubuntu-latest
     
     steps:
@@ -26,25 +26,14 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: Cache nand2tetris tools
-        id: cache-tools
-        uses: actions/cache@v4
-        with:
-          path: nand2tetris
-          key: nand2tetris-tools-v1
-
-      - name: Download nand2tetris tools
-        if: steps.cache-tools.outputs.cache-hit != 'true'
-        run: |
-          wget https://www.nand2tetris.org/software/nand2tetris.zip
-          unzip nand2tetris.zip
-          chmod +x nand2tetris/tools/*.sh
-
       - name: Run Test
         run: |
           TESTS=(
             "Not.tst"
           )
+
+          chmod +x tools/HardwareSimulator.sh
           for test in "${TESTS[@]}"; do
             echo "Running $test"
-            nand2tetris/tools/HardwareSimulator.sh projects/01/$test
+            sh tools/HardwareSimulator.sh projects/01/$test
+          done
