@@ -31,7 +31,9 @@ jobs:
           TESTS=(
             "Not.tst"
           )
+
+          chmod +x tools/HardwareSimulator.sh
           for test in "${TESTS[@]}"; do
             echo "Running $test"
-            tools/HardwareSimulator.sh projects/01/$test
+            sh tools/HardwareSimulator.sh projects/01/$test
           done
