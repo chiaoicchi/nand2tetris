@@ -1,6 +1,3 @@
-# For Nand2Tetris
-tools/
-
 # Delete output files
 **/*.out
 
