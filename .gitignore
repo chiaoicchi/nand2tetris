@@ -1,5 +1,8 @@
 # For Nand2Tetris
 tools/
 
+# Delete output files
+**/*.out
+
 # For MacOS
 .DS_Store
