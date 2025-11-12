@@ -29,7 +29,17 @@ jobs:
       - name: Run Test
         run: |
           TESTS=(
-            "Not.tst"
+            "Not.tst",
+            "And.tst",
+            "Or.tst",
+            "Xor.tst",
+            "Mux.tst",
+            "DMux.tst",
+            "Not16.tst",
+            "And16.tst",
+            "Or16.tst",
+            "Mux16.tst",
+            "Or8Way.tst"
           )
 
           chmod +x tools/HardwareSimulator.sh
