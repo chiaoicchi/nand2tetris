@@ -1,0 +1,50 @@
+name: CI (01-boolean logic)
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  JAVA_DISTRIBUTION: "temurin"
+  JAVA_VERSION: "25"
+
+jobs:
+  ci-01-boolean-logic:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Cache nand2tetris tools
+        id: cache-tools
+        uses: actions/cache@v4
+        with:
+          path: nand2tetris
+          key: nand2tetris-tools-v1
+
+      - name: Download nand2tetris tools
+        if: steps.cache-tools.outputs.cache-hit != 'true'
+        run: |
+          wget https://www.nand2tetris.org/software/nand2tetris.zip
+          unzip nand2tetris.zip
+          chmod +x nand2tetris/tools/*.sh
+
+      - name: Run Test
+        run: |
+          TESTS=(
+            "Not.tst"
+          )
+          for test in "${TESTS[@]}"; do
+            echo "Running $test"
+            nand2tetris/tools/HardwareSimulator.sh projects/01/$test
