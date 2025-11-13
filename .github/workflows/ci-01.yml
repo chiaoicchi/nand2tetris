@@ -31,5 +31,5 @@ jobs:
           chmod +x tools/HardwareSimulator.sh
           for test in projects/01/*.tst; do
             echo "Running $test"
-            sh tools/HardwareSimulator.sh projects/01/$test
+            sh tools/HardwareSimulator.sh $test
           done
