@@ -14,8 +14,6 @@ CHIP DMux {
     PARTS:
     //// Replace this comment with your code.
         Not(in=sel, out=t);
-        Nand(a=t, b=in, out=x);
-        Not(in=x, out=a);
-        Nand(a=sel, b=in, out=y);
-        Not(in=y, out=b);
+        And(a=t, b=in, out=a);
+        And(a=sel, b=in, out=b);
 }

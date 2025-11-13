@@ -28,22 +28,8 @@ jobs:
 
       - name: Run Test
         run: |
-          TESTS=(
-            "Not.tst"
-            "And.tst"
-            "Or.tst"
-            "Xor.tst"
-            "Mux.tst"
-            "DMux.tst"
-            "Not16.tst"
-            "And16.tst"
-            "Or16.tst"
-            "Mux16.tst"
-            "Or8Way.tst"
-          )
-
           chmod +x tools/HardwareSimulator.sh
-          for test in "${TESTS[@]}"; do
+          for test in projects/01/*.tst; do
             echo "Running $test"
-            sh tools/HardwareSimulator.sh projects/01/$test
+            sh tools/HardwareSimulator.sh $test
           done
