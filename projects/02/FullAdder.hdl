@@ -12,4 +12,15 @@ CHIP FullAdder {
 
     PARTS:
     //// Replace this comment with your code.
+        Nand(a=a, b=b, out=x);
+        Nand(a=a, b=x, out=y);
+        Nand(a=b, b=x, out=z);
+        Nand(a=y, b=z, out=xorab);
+
+        Nand(a=xorab, b=c, out=u);
+        Nand(a=xorab, b=u, out=v);
+        Nand(a=c, b=u, out=w);
+        Nand(a=v, b=w, out=sum);
+
+        Nand(a=x, b=u, out=carry);
 }

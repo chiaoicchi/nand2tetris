@@ -26,10 +26,18 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: Run Test
+      - name: Run Test 01
         run: |
           chmod +x tools/HardwareSimulator.sh
           for test in projects/01/*.tst; do
+            echo "Running $test"
+            sh tools/HardwareSimulator.sh $test
+          done
+
+      - name: Run Test 02
+        run: |
+          chmod +x tools/HardwareSimulator.sh
+          for test in projects/02/*.tst; do
             echo "Running $test"
             sh tools/HardwareSimulator.sh $test
           done
