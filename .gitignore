@@ -1,5 +1,8 @@
 # Delete output files
 **/*.out
 
+# For 04
+projects/04/fill/Fill.hack
+
 # For MacOS
 .DS_Store

@@ -53,3 +53,11 @@ jobs:
             echo "Running $test"
             sh tools/HardwareSimulator.sh $test
           done
+
+      - name: Run Test 04
+        run: |
+          chmod +x tools/CPUEmulator.sh
+          echo "Running Mult.tst"
+          sh tools/CPUEmulator.sh projects/04/mult/Mult.tst
+          echo "Running FillAutomatic.tst"
+          sh tools/CPUEmulator.sh projects/04/fill/FillAutomatic.tst
