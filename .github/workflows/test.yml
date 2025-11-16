@@ -58,7 +58,7 @@ jobs:
         run: |
           chmod +x tools/CPUEmulator.sh
           echo "Running Mult.tst"
-          sh tools/CPUEmulator.sh Mult.tst
+          sh tools/CPUEmulator.sh projects/04/mult/Mult.tst
           echo "Running FillAutomatic.tst"
-          sh tools/CPUEmulator.sh FillAutomatic.tst
+          sh tools/CPUEmulator.sh projects/04/fill/FillAutomatic.tst
           done
