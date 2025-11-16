@@ -61,4 +61,3 @@ jobs:
           sh tools/CPUEmulator.sh projects/04/mult/Mult.tst
           echo "Running FillAutomatic.tst"
           sh tools/CPUEmulator.sh projects/04/fill/FillAutomatic.tst
-          done
