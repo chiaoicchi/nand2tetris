@@ -53,3 +53,15 @@ jobs:
             echo "Running $test"
             sh tools/HardwareSimulator.sh $test
           done
+
+      - name: Run Test 04
+        run: |
+          chmod +x tools/CPUEmulator.sh
+          for test in projects/04/mult/*.tst; do
+            echo "Running $test"
+            sh tools/CPUEmulator.sh $test
+          done
+          for test in projects/04/fill/*.tst; do
+            echo "Running $test"
+            sh tools/CPUEmulator.sh $test
+          done

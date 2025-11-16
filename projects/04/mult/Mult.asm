@@ -8,3 +8,50 @@
 // The algorithm is based on repetitive addition.
 
 //// Replace this comment with your code.
+
+// pseudocode
+//      i = 0
+//      ans = 0
+//  LOOP:
+//      if (i >= R1) goto STOP
+//      ans += R0
+//      i += 1
+//      goto LOOP
+//  STOP:
+//      R2 = ans
+
+    @i
+    M=0
+    @ans
+    M=0
+
+(LOOP)
+    @i
+    D=M
+    @R1
+    D=D-M
+    @STOP
+    D;JGE
+
+    @ans
+    D=M
+    @R0
+    D=D+M
+    @ans
+    M=D
+    
+    @i
+    M=M+1
+
+    @LOOP
+    0;JMP
+
+(STOP)
+    @ans
+    D=M
+    @R2
+    M=D
+
+(END)
+    @END
+    0;JMP
